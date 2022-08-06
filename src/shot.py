@@ -34,19 +34,6 @@ def shot_goal(gimbal: Gimbal, ep_blaster: Blaster, goal: int):
 	time.sleep(0.9)  # 设置延时使水弹发射速度符合要求
 
 
-	# pid_Yaw.set_error(variable_X - 0.5)
-	# pid_Pitch.set_error(0.65 - variable_Y)
-	# gimbal_ctrl.rotate_with_speed(pid_Yaw.get_output(),pid_Pitch.get_output())
-	# time.sleep(0.05)
-	# variable_Post = 0.05
-	# if abs(variable_X - 0.5) <= variable_Post and abs(0.65 - variable_Y) <= variable_Post:
-	# 	gun_ctrl.set_fire_count(1)
-	# 	led_ctrl.gun_led_on()
-	# 	ir_blaster_ctrl.fire_once()
-	# 	gun_ctrl.fire_once()
-	# 	led_ctrl.gun_led_off()
-
-
 def choose():
 	index = 0
 	min_index = 0
@@ -68,13 +55,6 @@ def set_goals(ai_info):
 	global goal_amount
 	goal_amount = ai_info[0]
 	goal_list = ai_info[1]
-	# while index < goal_amount:
-	# 	goal_list[index][0] = ai_info[1][index][0]
-	# 	goal_list[index][1] = ai_info[1][index][1] / 320
-	# 	goal_list[index][2] = ai_info[1][index][2] / 240
-	# 	goal_list[index][3] = ai_info[1][index][3] / 320
-	# 	goal_list[index][4] = ai_info[1][index][4] / 240
-	# 	goal_list[index][5] = ai_info[1][index][5] / 100
 
 
 def shot(ep: Robot):
