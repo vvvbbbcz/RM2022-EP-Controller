@@ -21,17 +21,17 @@ def shot_goal(gimbal: Gimbal, ep_blaster: Blaster, goal: int):
 			g_1 = goal_list[goal][1] / 320
 			g_2 = goal_list[goal][2] / 240
 
-			if 0.495 < g_1 < 0.505 and 0.645 < g_2 < 0.655:
+			if 0.495 < g_1 < 0.505 and 0.645 < g_2 < 0.655:  # 判断是否瞄准标靶
 				break
 			aim_move = aim_goal([g_1, g_2])
 			print(goal)
 			gimbal.drive_speed(aim_move[0], aim_move[1])
-			time.sleep(0.1)
+			time.sleep(0.1)  # 设置延时以防止通信问题
 	gimbal.move(pitch=1, pitch_speed=30).wait_for_completed()
 	ep_blaster.set_led()
-	ep_blaster.fire()
+	ep_blaster.fire()  # 发射水弹
 	ep_blaster.set_led(effect=blaster.LED_OFF)
-	time.sleep(0.9)
+	time.sleep(0.9)  # 设置延时使水弹发射速度符合要求
 
 
 	# pid_Yaw.set_error(variable_X - 0.5)
